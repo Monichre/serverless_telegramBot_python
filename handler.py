@@ -22,14 +22,12 @@ def hello(event, context):
         if "start" in message:
             response = "Hello {}".format(first_name)
 
-            
-    return response
+        data = {"text": response.encode("utf8"),  "chat_id": chat_id}
+        url = BASE_URL + "/sendMessage"
+        requests.post(url, data)
+    except Exception as e:
+        print(e)       
 
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """
+    return {"statusCode": 200}
+
+  

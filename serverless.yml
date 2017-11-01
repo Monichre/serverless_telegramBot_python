@@ -20,11 +20,10 @@ service: serverless_telegram_path
 provider:
   name: aws
   runtime: python3.6
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
-
+  stage: dev
+  region: us-east-1
+  environment:
+    TELEGRAM_TOKEN: ${env:TELEGRAM_TOKEN}
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -55,8 +54,11 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
+  post:
     handler: handler.hello
+    events: 
+      - http:
+        path: 
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
