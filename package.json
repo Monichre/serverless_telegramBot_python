@@ -1,0 +1,9 @@
+{
+  "name": "serverless_telegram_path",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-offline": "^3.16.0"
+  }
+}

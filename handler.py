@@ -8,6 +8,7 @@ sys.path.append(os.path.join(here, './vendored'))
 import requests
 
 TOKEN = os.environ['TELEGRAM_TOKEN']
+print(TOKEN)
 BASE_URL = "https://api.telegram.org/bot{}".format(TOKEN)
 
 def hello(event, context):
@@ -25,9 +26,9 @@ def hello(event, context):
         data = {"text": response.encode("utf8"),  "chat_id": chat_id}
         url = BASE_URL + "/sendMessage"
         requests.post(url, data)
+
     except Exception as e:
         print(e)       
 
     return {"statusCode": 200}
 
-  
