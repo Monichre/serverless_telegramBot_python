@@ -11,7 +11,7 @@ functions:
     handler: handler.hello
     events:
       - http:
-          path: hello/get
+          path: harvey
           method: post
           cors: true
 plugins: serverless-offline
